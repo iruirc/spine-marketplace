@@ -49,15 +49,49 @@ codex plugin add spine-platform-swift@spine     # or spine-platform-kotlin@spine
 codex plugin add spine-driver-mobile@spine      # optional
 ```
 
-Refresh the marketplace and its installed plugins with:
+Start a new Codex session after installation, then run `$spine-toolkit:setup` in the
+project — [spine-toolkit's README](https://github.com/iruirc/spine-toolkit#codex-cli) says what it
+sets up and what differs from Claude Code.
+
+## Updating
+
+Run these in a terminal, not inside a session. Each block refreshes the marketplace, then every
+Spine plugin; list only the ones you installed. A plugin already at its latest version stays as it
+is.
+
+Claude Code:
+
+```bash
+claude plugin marketplace update spine
+claude plugin update spine-toolkit@spine
+claude plugin update spine-platform-swift@spine
+claude plugin update spine-platform-kotlin@spine
+claude plugin update spine-driver-mobile@spine
+claude plugin update spine-driver-agent-device@spine
+claude plugin list | grep -A1 '@spine'           # the versions now installed
+```
+
+Restart Claude Code: an update applies to sessions started after it.
+
+Codex:
 
 ```bash
 codex plugin marketplace upgrade spine
+codex plugin add spine-toolkit@spine              # again for each plugin you installed, if its
+codex plugin add spine-platform-swift@spine       # new version is not under
+codex plugin add spine-platform-kotlin@spine      # ~/.codex/plugins/cache/spine/<plugin>/
+codex plugin add spine-driver-mobile@spine
+codex plugin add spine-driver-agent-device@spine
+ls ~/.codex/plugins/cache/spine/*                 # the versions now installed
 ```
 
-Start a new Codex session after installation or upgrade, then run `$spine-toolkit:setup` in the
-project — [spine-toolkit's README](https://github.com/iruirc/spine-toolkit#codex-cli) says what it
-sets up and what differs from Claude Code.
+Start a new Codex session. Codex fingerprints a plugin's hooks by the whole plugin, so after every
+update it asks to trust Spine's hooks again although they did not change: trust them (`t`).
+
+Then read the release notes — the body of the `chore: release <version>` commit behind each tag in
+[spine-toolkit's tags](https://github.com/iruirc/spine-toolkit/tags). When a release changes what a
+project config means, they say so first and name what to run; usually that is `/setup` in Claude
+Code or `$spine-toolkit:setup` in Codex, once per project. It asks before it changes anything.
 
 Writing a platform plugin for another stack is a documented contract:
 [`conventions/platform-contract.md`](https://github.com/iruirc/spine-toolkit/blob/main/conventions/platform-contract.md).
