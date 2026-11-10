@@ -55,11 +55,12 @@ sets up and what differs from Claude Code.
 
 ## Updating
 
-Run these in a terminal, not inside a session. Each block refreshes the marketplace, then every
-Spine plugin; list only the ones you installed. A plugin already at its latest version stays as it
-is.
+Run these in a terminal, not inside a session. The blocks carry no comments on purpose: zsh, the
+macOS default, does not read `#` as a comment when you paste into it, and passes the words on as
+arguments.
 
-Claude Code:
+Claude Code — refresh the marketplace, update every Spine plugin (keep only the lines for the ones
+you installed; one already at its latest version stays as it is), then list the installed versions:
 
 ```bash
 claude plugin marketplace update spine
@@ -68,22 +69,21 @@ claude plugin update spine-platform-swift@spine
 claude plugin update spine-platform-kotlin@spine
 claude plugin update spine-driver-mobile@spine
 claude plugin update spine-driver-agent-device@spine
-claude plugin list | grep -A1 '@spine'           # the versions now installed
+claude plugin list | grep -A1 '@spine'
 ```
 
 Restart Claude Code: an update applies to sessions started after it.
 
-Codex:
+Codex — refreshing the marketplace updates the installed plugins too; the second line lists the
+versions now installed:
 
 ```bash
 codex plugin marketplace upgrade spine
-codex plugin add spine-toolkit@spine              # again for each plugin you installed, if its
-codex plugin add spine-platform-swift@spine       # new version is not under
-codex plugin add spine-platform-kotlin@spine      # ~/.codex/plugins/cache/spine/<plugin>/
-codex plugin add spine-driver-mobile@spine
-codex plugin add spine-driver-agent-device@spine
-ls ~/.codex/plugins/cache/spine/*                 # the versions now installed
+ls ~/.codex/plugins/cache/spine/*
 ```
+
+A plugin whose new version is missing from that list is reinstalled with
+`codex plugin add <plugin>@spine`, for example `codex plugin add spine-toolkit@spine`.
 
 Start a new Codex session. Codex fingerprints a plugin's hooks by the whole plugin, so after every
 update it asks to trust Spine's hooks again although they did not change: trust them (`t`).
