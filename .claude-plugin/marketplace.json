@@ -1,14 +1,14 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "spine",
-  "version": "2.52.3",
+  "version": "2.53.0",
   "description": "spine-toolkit, the platform plugins that teach it a stack, and the drivers that drive a running app",
   "owner": { "name": "Dmitry Nuzhin" },
   "plugins": [
     {
       "name": "spine-toolkit",
       "description": "Task lifecycle orchestrator: stages, artifacts, dispatch, Tasks/, telemetry, i18n",
-      "version": "2.34.0",
+      "version": "2.35.0",
       "author": { "name": "Dmitry Nuzhin" },
       "source": { "source": "github", "repo": "iruirc/spine-toolkit" },
       "category": "development",
