@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "spine",
-  "version": "2.52.2",
+  "version": "2.52.3",
   "description": "spine-toolkit, the platform plugins that teach it a stack, and the drivers that drive a running app",
   "owner": { "name": "Dmitry Nuzhin" },
   "plugins": [
@@ -17,7 +17,7 @@
     {
       "name": "spine-platform-swift",
       "description": "Swift/Apple knowledge and agents for spine-toolkit",
-      "version": "1.33.2",
+      "version": "1.33.3",
       "author": { "name": "Dmitry Nuzhin" },
       "source": { "source": "github", "repo": "iruirc/spine-platform-swift" },
       "category": "development",
@@ -26,7 +26,7 @@
     {
       "name": "spine-platform-kotlin",
       "description": "Kotlin knowledge and agents for spine-toolkit — Android, Compose Desktop, JVM servers, KMP",
-      "version": "1.21.0",
+      "version": "1.21.1",
       "author": { "name": "Dmitry Nuzhin" },
       "source": { "source": "github", "repo": "iruirc/spine-platform-kotlin" },
       "category": "development",
