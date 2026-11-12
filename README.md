@@ -88,10 +88,16 @@ A plugin whose new version is missing from that list is reinstalled with
 Start a new Codex session. Codex fingerprints a plugin's hooks by the whole plugin, so after every
 update it asks to trust Spine's hooks again although they did not change: trust them (`t`).
 
-Then read the release notes — the body of the `chore: release <version>` commit behind each tag in
-[spine-toolkit's tags](https://github.com/iruirc/spine-toolkit/tags). When a release changes what a
-project config means, they say so first and name what to run; usually that is `/setup` in Claude
-Code or `$spine-toolkit:setup` in Codex, once per project. It asks before it changes anything.
+Then read the release notes of each plugin you updated — the body of the `chore: release <version>`
+commit behind each tag in its own repository:
+[spine-toolkit](https://github.com/iruirc/spine-toolkit/tags),
+[spine-platform-swift](https://github.com/iruirc/spine-platform-swift/tags),
+[spine-platform-kotlin](https://github.com/iruirc/spine-platform-kotlin/tags),
+[spine-driver-mobile](https://github.com/iruirc/spine-driver-mobile/tags),
+[spine-driver-agent-device](https://github.com/iruirc/spine-driver-agent-device/tags). When a release
+changes what a project config means, they say so first and name what to run; usually that is
+`/setup` in Claude Code or `$spine-toolkit:setup` in Codex, once per project. It asks before it
+changes anything.
 
 Writing a platform plugin for another stack is a documented contract:
 [`conventions/platform-contract.md`](https://github.com/iruirc/spine-toolkit/blob/main/conventions/platform-contract.md).
