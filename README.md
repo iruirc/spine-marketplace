@@ -60,7 +60,9 @@ macOS default, does not read `#` as a comment when you paste into it, and passes
 arguments.
 
 Claude Code — refresh the marketplace, update every Spine plugin (keep only the lines for the ones
-you installed; one already at its latest version stays as it is), then list the installed versions:
+you installed; one already at its latest version stays as it is), then list the installed versions
+and the marketplace release the update read. `claude plugin list` shows plugins only; the last line
+prints the release commit of the local marketplace clone, `chore: release <version>`:
 
 ```bash
 claude plugin marketplace update spine
@@ -70,16 +72,19 @@ claude plugin update spine-platform-kotlin@spine
 claude plugin update spine-driver-mobile@spine
 claude plugin update spine-driver-agent-device@spine
 claude plugin list | grep -A1 '@spine'
+git -C ~/.claude/plugins/marketplaces/spine log -1 --oneline
 ```
 
 Restart Claude Code: an update applies to sessions started after it.
 
 Codex — refreshing the marketplace updates the installed plugins too; the second line lists the
-versions now installed:
+versions now installed, the third prints the release commit of the marketplace clone, at the path
+the upgrade reports as `Installed marketplace root`:
 
 ```bash
 codex plugin marketplace upgrade spine
 ls ~/.codex/plugins/cache/spine/*
+git -C ~/.codex/.tmp/marketplaces/spine log -1 --oneline
 ```
 
 A plugin whose new version is missing from that list is reinstalled with
