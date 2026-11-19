@@ -29,12 +29,18 @@ and the drivers that let it drive a running app. All five install in Codex CLI t
 
 ## Claude Code
 
+Add the marketplace, then install one platform: `spine-platform-swift` for a Swift project,
+`spine-platform-kotlin` for a Kotlin one; either pulls `spine-toolkit` with it. For any other stack
+install `spine-toolkit` alone and pair it with a platform plugin of your own. `spine-driver-mobile`
+is optional: it lets Validation drive a simulator or device. Each line is a command of its own, with
+nothing after the plugin name.
+
 ```text
 /plugin marketplace add iruirc/spine-marketplace
-/plugin install spine-platform-swift   # for a Swift project — pulls spine-toolkit with it
-/plugin install spine-platform-kotlin  # for a Kotlin project — pulls spine-toolkit with it
-/plugin install spine-toolkit          # for any other stack, paired with a platform plugin of your own
-/plugin install spine-driver-mobile    # optional — lets Validation drive a simulator or device
+/plugin install spine-platform-swift
+/plugin install spine-platform-kotlin
+/plugin install spine-toolkit
+/plugin install spine-driver-mobile
 ```
 
 ## Codex
