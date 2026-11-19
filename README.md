@@ -40,13 +40,16 @@ and the drivers that let it drive a running app. All five install in Codex CLI t
 ## Codex
 
 Add this repository as a Git-backed marketplace, then install the orchestrator, a platform and,
-optionally, a driver:
+optionally, a driver. For a Kotlin project replace the third line with
+`codex plugin add spine-platform-kotlin@spine`; the last line, the driver, is optional. The block
+carries no comments on purpose: zsh, the macOS default, passes a pasted `#` and the words after it
+on as arguments.
 
 ```bash
 codex plugin marketplace add iruirc/spine-marketplace
 codex plugin add spine-toolkit@spine
-codex plugin add spine-platform-swift@spine     # or spine-platform-kotlin@spine
-codex plugin add spine-driver-mobile@spine      # optional
+codex plugin add spine-platform-swift@spine
+codex plugin add spine-driver-mobile@spine
 ```
 
 Start a new Codex session after installation, then run `$spine-toolkit:setup` in the
